@@ -12,8 +12,8 @@ before_script:
 
 script:
   - echo "Here we are building the image"
-  - docker build -t udagram-api-feed  .
-  - docker tag sudagram-api-feed muhammedismaildev/udagram-api-feed:latest
+  - docker build -t udagram-api-feed .
+  - docker tag udagram-api-feed muhammedismaildev/udagram-api-feed:latest
   # pushing the image to the docker reg
   - docker push muhammedismaildev/udagram-api-feed
   - echo "image has been pushed"
