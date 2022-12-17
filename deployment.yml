@@ -15,9 +15,16 @@ spec:
         service: udagram-api-feed
     spec:
       containers:
-        - image: muhammedismaildev/udagram-api-feed:latest
+        - image: muhammedismaildev/udagram-api-feed:v1
           name: udagram-api-feed
           imagePullPolicy: Always
+          resources:
+            requests:
+              memory: "500Mi"
+              cpu: "500m"
+            limits:
+              memory: "1024Mi"
+              cpu: "1000m"
           ports:
             - containerPort: 8080
           envFrom:
@@ -29,8 +36,9 @@ spec:
             - name: aws-config-volume
               mountPath: /root/.aws
       restartPolicy: Always
+
       volumes:
         - name: aws-config-volume
           secret:
-            secretName: aws-secret2
+            secretName: aws-secret
 
